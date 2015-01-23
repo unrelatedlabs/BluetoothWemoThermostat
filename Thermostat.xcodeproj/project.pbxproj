@@ -13,6 +13,8 @@
 		CCA626611A7220A1004D901A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA626601A7220A1004D901A /* Images.xcassets */; };
 		CCA626641A7220A1004D901A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCA626621A7220A1004D901A /* LaunchScreen.xib */; };
 		CCA626701A7220A1004D901A /* ThermostatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6266F1A7220A1004D901A /* ThermostatTests.swift */; };
+		CCA6267C1A7220DE004D901A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA6267B1A7220DE004D901A /* CoreBluetooth.framework */; };
+		CCA6267E1A72216F004D901A /* ULBluetoothThermometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6267D1A72216F004D901A /* ULBluetoothThermometer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		CCA626691A7220A1004D901A /* ThermostatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThermostatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA6266E1A7220A1004D901A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCA6266F1A7220A1004D901A /* ThermostatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermostatTests.swift; sourceTree = "<group>"; };
+		CCA6267B1A7220DE004D901A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		CCA6267D1A72216F004D901A /* ULBluetoothThermometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ULBluetoothThermometer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCA6267C1A7220DE004D901A /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		CCA6264B1A7220A1004D901A = {
 			isa = PBXGroup;
 			children = (
+				CCA6267B1A7220DE004D901A /* CoreBluetooth.framework */,
 				CCA626561A7220A1004D901A /* Thermostat */,
 				CCA6266C1A7220A1004D901A /* ThermostatTests */,
 				CCA626551A7220A1004D901A /* Products */,
@@ -83,6 +89,7 @@
 				CCA626601A7220A1004D901A /* Images.xcassets */,
 				CCA626621A7220A1004D901A /* LaunchScreen.xib */,
 				CCA626571A7220A1004D901A /* Supporting Files */,
+				CCA6267D1A72216F004D901A /* ULBluetoothThermometer.swift */,
 			);
 			path = Thermostat;
 			sourceTree = "<group>";
@@ -161,6 +168,11 @@
 				TargetAttributes = {
 					CCA626531A7220A1004D901A = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					CCA626681A7220A1004D901A = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -212,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCA6267E1A72216F004D901A /* ULBluetoothThermometer.swift in Sources */,
 				CCA6265C1A7220A1004D901A /* ViewController.swift in Sources */,
 				CCA6265A1A7220A1004D901A /* AppDelegate.swift in Sources */,
 			);
@@ -339,6 +352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Thermostat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -349,6 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Thermostat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -407,6 +422,7 @@
 				CCA626751A7220A1004D901A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CCA626761A7220A1004D901A /* Build configuration list for PBXNativeTarget "ThermostatTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +431,7 @@
 				CCA626781A7220A1004D901A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
