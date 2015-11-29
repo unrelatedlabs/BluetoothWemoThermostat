@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0CAF5F87F33BB28742FD38 /* Pods_Thermostat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4E943E185671147528A6DA /* Pods_Thermostat.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CCA6265A1A7220A1004D901A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA626591A7220A1004D901A /* AppDelegate.swift */; };
 		CCA6265C1A7220A1004D901A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6265B1A7220A1004D901A /* ViewController.swift */; };
 		CCA6265F1A7220A1004D901A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA6265D1A7220A1004D901A /* Main.storyboard */; };
@@ -15,6 +16,11 @@
 		CCA626701A7220A1004D901A /* ThermostatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6266F1A7220A1004D901A /* ThermostatTests.swift */; };
 		CCA6267C1A7220DE004D901A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA6267B1A7220DE004D901A /* CoreBluetooth.framework */; };
 		CCA6267E1A72216F004D901A /* ULBluetoothThermometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6267D1A72216F004D901A /* ULBluetoothThermometer.swift */; };
+		D0525ACD1BFDAB4400E58732 /* ULLazyBone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0525ACC1BFDAB4400E58732 /* ULLazyBone.swift */; };
+		D0ACBD881C08CE0E0067D8FE /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACBD871C08CE0E0067D8FE /* UIWebViewController.swift */; };
+		D0ACBD8D1C08D1530067D8FE /* web in Resources */ = {isa = PBXBuildFile; fileRef = D0ACBD8C1C08D1530067D8FE /* web */; };
+		D0ACBD8F1C08DA850067D8FE /* ULWemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACBD8E1C08DA850067D8FE /* ULWemo.swift */; };
+		D0F56B781BF71C9000FD123A /* ULDweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F56B771BF71C9000FD123A /* ULDweet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CA9E15DE2D85C66AA18D58F /* Pods-Thermostat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermostat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thermostat/Pods-Thermostat.debug.xcconfig"; sourceTree = "<group>"; };
+		0E1B46C2B8EFA45CC4EA368E /* Pods-Thermostat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermostat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thermostat/Pods-Thermostat.release.xcconfig"; sourceTree = "<group>"; };
 		CCA626541A7220A1004D901A /* Thermostat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thermostat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA626581A7220A1004D901A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCA626591A7220A1004D901A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +48,12 @@
 		CCA6266F1A7220A1004D901A /* ThermostatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermostatTests.swift; sourceTree = "<group>"; };
 		CCA6267B1A7220DE004D901A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		CCA6267D1A72216F004D901A /* ULBluetoothThermometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ULBluetoothThermometer.swift; sourceTree = "<group>"; };
+		CD4E943E185671147528A6DA /* Pods_Thermostat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thermostat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0525ACC1BFDAB4400E58732 /* ULLazyBone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ULLazyBone.swift; sourceTree = "<group>"; };
+		D0ACBD871C08CE0E0067D8FE /* UIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
+		D0ACBD8C1C08D1530067D8FE /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
+		D0ACBD8E1C08DA850067D8FE /* ULWemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ULWemo.swift; sourceTree = "<group>"; };
+		D0F56B771BF71C9000FD123A /* ULDweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ULDweet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA6267C1A7220DE004D901A /* CoreBluetooth.framework in Frameworks */,
+				7A0CAF5F87F33BB28742FD38 /* Pods_Thermostat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0246E8258137A2D833E208D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CA9E15DE2D85C66AA18D58F /* Pods-Thermostat.debug.xcconfig */,
+				0E1B46C2B8EFA45CC4EA368E /* Pods-Thermostat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		08521986A7AFE3BBFBD1A029 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD4E943E185671147528A6DA /* Pods_Thermostat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CCA6264B1A7220A1004D901A = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +100,8 @@
 				CCA626561A7220A1004D901A /* Thermostat */,
 				CCA6266C1A7220A1004D901A /* ThermostatTests */,
 				CCA626551A7220A1004D901A /* Products */,
+				0246E8258137A2D833E208D2 /* Pods */,
+				08521986A7AFE3BBFBD1A029 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +117,7 @@
 		CCA626561A7220A1004D901A /* Thermostat */ = {
 			isa = PBXGroup;
 			children = (
+				D0ACBD8C1C08D1530067D8FE /* web */,
 				CCA626591A7220A1004D901A /* AppDelegate.swift */,
 				CCA6265B1A7220A1004D901A /* ViewController.swift */,
 				CCA6265D1A7220A1004D901A /* Main.storyboard */,
@@ -90,6 +125,10 @@
 				CCA626621A7220A1004D901A /* LaunchScreen.xib */,
 				CCA626571A7220A1004D901A /* Supporting Files */,
 				CCA6267D1A72216F004D901A /* ULBluetoothThermometer.swift */,
+				D0F56B771BF71C9000FD123A /* ULDweet.swift */,
+				D0525ACC1BFDAB4400E58732 /* ULLazyBone.swift */,
+				D0ACBD871C08CE0E0067D8FE /* UIWebViewController.swift */,
+				D0ACBD8E1C08DA850067D8FE /* ULWemo.swift */,
 			);
 			path = Thermostat;
 			sourceTree = "<group>";
@@ -126,9 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCA626731A7220A1004D901A /* Build configuration list for PBXNativeTarget "Thermostat" */;
 			buildPhases = (
+				ECF46C0768DC25E03B473AB8 /* Check Pods Manifest.lock */,
 				CCA626501A7220A1004D901A /* Sources */,
 				CCA626511A7220A1004D901A /* Frameworks */,
 				CCA626521A7220A1004D901A /* Resources */,
+				1F49131758C4BE7CA495A06A /* Copy Pods Resources */,
+				F9DEF496924134DC852F554C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,11 +205,14 @@
 		CCA6264C1A7220A1004D901A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Peter Kuhar";
 				TargetAttributes = {
 					CCA626531A7220A1004D901A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 5QJ7W2AQ8H;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -205,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA6265F1A7220A1004D901A /* Main.storyboard in Resources */,
+				D0ACBD8D1C08D1530067D8FE /* web in Resources */,
 				CCA626641A7220A1004D901A /* LaunchScreen.xib in Resources */,
 				CCA626611A7220A1004D901A /* Images.xcassets in Resources */,
 			);
@@ -219,14 +265,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F49131758C4BE7CA495A06A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thermostat/Pods-Thermostat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECF46C0768DC25E03B473AB8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F9DEF496924134DC852F554C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thermostat/Pods-Thermostat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CCA626501A7220A1004D901A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CCA6267E1A72216F004D901A /* ULBluetoothThermometer.swift in Sources */,
+				D0ACBD881C08CE0E0067D8FE /* UIWebViewController.swift in Sources */,
 				CCA6265C1A7220A1004D901A /* ViewController.swift in Sources */,
+				D0F56B781BF71C9000FD123A /* ULDweet.swift in Sources */,
+				D0525ACD1BFDAB4400E58732 /* ULLazyBone.swift in Sources */,
 				CCA6265A1A7220A1004D901A /* AppDelegate.swift in Sources */,
+				D0ACBD8F1C08DA850067D8FE /* ULWemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,23 +447,31 @@
 		};
 		CCA626741A7220A1004D901A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CA9E15DE2D85C66AA18D58F /* Pods-Thermostat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Thermostat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		CCA626751A7220A1004D901A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1B46C2B8EFA45CC4EA368E /* Pods-Thermostat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Thermostat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

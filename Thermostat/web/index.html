@@ -1,0 +1,79 @@
+<html>
+<head>
+    <script>
+    
+    window.thermostat = {};
+    thermostat.bedroomTarget = 18;
+    thermostat.bedroomHeater = null;
+    var hysteresis = 0.3;
+    
+    
+    window.addEventListener('temperature', function (e) {
+                            updateTemperatures(e.detail);
+    }, false);
+                          
+    function updateTemperatures(temperatures){
+        
+        var bedroom = temperatures["bedroom"];
+        var living  = temperatures["living-room"];
+        //TODO:
+        
+        document.getElementById("temperatures").innerHTML = JSON.stringify(temperatures);
+        
+        if( bedroom - hysteresis < thermostat.bedroomTarget && thermostat.bedroomHeater !== true ){
+            turnBedroom(true);
+            thermostat.bedroomHeater = true;
+        }
+        
+        if( bedroom + hysteresis > thermostat.bedroomTarget && thermostat.bedroomHeater !== false ){
+            turnBedroom(false);
+            thermostat.bedroomHeater = false;
+        }
+    };
+    
+    function turnBedroom(on){
+        command({"wemo":{"address":"http://10.0.0.140:9700/devices/bedroom_heater/","on":on}});
+        
+        document.getElementById("bedroom").innerHTML = "" + on;
+    }
+    
+    function turnLiving(on){
+        command({"lazybone":{"address":"10.0.0.19","on":on}});
+    }
+    
+    
+    function command(cmd){
+        setTimeout(1,function(){
+                   window.location = "command:"+ encodeURIComponent(JSON.stringify(cmd));
+        });
+    }
+    
+    </script>
+    <style>
+        body{
+            font-size:30px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <div id="bedroom">
+        ---
+    </div>
+    
+    <div id="temperatures">
+    </div>
+    
+    Bedroom
+    <button onclick='turnBedroom(true);'>on</button>
+    <button onclick='turnBedroom(false);'>false</button>
+
+    Living
+    <button onclick='turnLiving(true);'>on</button>
+    <button onclick='turnLiving(false);'>false</button>
+    
+    Test
+    <button onclick="thermostat.bedroomTarget = 17;">test 17</button>
+</body>
+</html>

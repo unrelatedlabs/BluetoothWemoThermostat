@@ -7,15 +7,27 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    lazy var locationManager = CLLocationManager()
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        locationManager.requestAlwaysAuthorization()
+
+        
+        locationManager.desiredAccuracy = 100000
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
+        
+        locationManager.startUpdatingLocation()
+
+        
         return true
     }
 

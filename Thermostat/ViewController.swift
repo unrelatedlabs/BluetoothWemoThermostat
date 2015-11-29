@@ -9,7 +9,7 @@
 import UIKit
 extension Double {
     func format(f: Int) -> String {
-        return NSString(format: "%.\(f)f", self)
+        return NSString(format: "%.\(f)f", self) as String
     }
 }
 
@@ -37,8 +37,16 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        thermometer.temperatureChange = { (temperature) ->  Void in
-            self.updateThermostat()
+        textField.text = NSUserDefaults().stringForKey("url") 
+        
+        thermometer.temperatureChange = { (temperature,device) ->  Void in
+            //self.updateThermostat()
+            
+            self.webController.updateTemperatures([device:temperature])
+            
+            IOTData.post("com.unrelatedlabs.oxford-\(device)-temperature", data: ["temperature":temperature], completionBlock: { (error) -> Void in
+                
+            })
         }
         
         UIApplication.sharedApplication().idleTimerDisabled = true
@@ -68,7 +76,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        NSUserDefaults().setObject(textField.text, forKey: "url")
+        NSUserDefaults().synchronize()
+        textField.resignFirstResponder()
         return true
     }
     
@@ -82,17 +95,26 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
     }
     
+
+    
     func controllHeader(onOff:Bool){
+        ULLazyBone.control("10.0.0.19", on: onOff)
+        
+        
+        
+    }
+    
+    func controllHeader2(onOff:Bool){
         heaterEnabled = onOff;
         
-        let url = textField.text + ( onOff ? "on":"off")
+        let url = (textField.text ?? "") + ( onOff ? "on":"off")
         
         NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: NSURL(string: url)!), queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
             if let error = error{
                 self.statusLabel.text = error.localizedDescription
             }
             if let data = data{
-                self.statusLabel.text = NSString(data: data, encoding: NSUTF8StringEncoding)
+                self.statusLabel.text = NSString(data: data, encoding: NSUTF8StringEncoding) as? String
             }
         }
         
@@ -122,10 +144,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     var logFile:NSFileHandle? = nil
     func writeToFile(current:Double,target:Double,state:Bool){
-        var str = "\(NSDate()),\(current),\(target),\(state)\n"
+        let str = "\(NSDate()),\(current),\(target),\(state)\n"
         
         if logFile == nil{
-            let filename = "~/Documents/log.csv".stringByExpandingTildeInPath
+            let filename = ("~/Documents/log.csv" as NSString).stringByExpandingTildeInPath
             if !NSFileManager.defaultManager().fileExistsAtPath(filename){
                 NSFileManager.defaultManager().createFileAtPath(filename, contents: nil, attributes: nil)
             }
@@ -133,6 +155,21 @@ class ViewController: UIViewController,UITextFieldDelegate {
             logFile = NSFileHandle(forWritingAtPath:filename)
         }
         logFile?.writeData( str.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)! );
+    }
+    
+    var webController = UIWebViewController()
+    
+    @IBAction
+    func openWebView(){
+        presentViewController(webController, animated: true) { () -> Void in
+            
+        }
+        
+        if let url = textField.text{
+            if url.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 10{
+                webController.loadUrl( url )
+            }
+        }
     }
 }
 

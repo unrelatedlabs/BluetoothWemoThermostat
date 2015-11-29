@@ -15,16 +15,18 @@ class ULBluetoothThermometer: NSObject,CBCentralManagerDelegate {
     
     var bluetoothManager = CBCentralManager(delegate: nil, queue: dispatch_get_main_queue())
     
-    var temperatureChange: ((Double)->Void)?
+    var temperatureChange: ((Double,String)->Void)?
     var sensorUUID:String?;
     var temperature:Double = 0;
+    
+    var deviceNames = ["2600032D":"bedroom","57A7993C":"living-room"]
     
     override init(){
         super.init()
         bluetoothManager.delegate = self;
     }
     
-    func centralManagerDidUpdateState(central: CBCentralManager!){
+    func centralManagerDidUpdateState(central: CBCentralManager){
         switch central.state{
         case CBCentralManagerState.PoweredOn:
             central.scanForPeripheralsWithServices(nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey:true])
@@ -34,13 +36,15 @@ class ULBluetoothThermometer: NSObject,CBCentralManagerDelegate {
         }
     }
     
-    func centralManager(central: CBCentralManager!, didDiscoverPeripheral peripheral: CBPeripheral!, advertisementData: [NSObject : AnyObject]!, RSSI: NSNumber!){
+    func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber){
         
         if let temperature = self.tempFromAdvData(advertisementData){
-            NSLog("Temperature \(temperature)");
+            var name = peripheral.name ?? peripheral.identifier.UUIDString
+            name = deviceNames[name] ?? name
+            NSLog("Temperature \(temperature) \(name)");
             if let callbackBlock = temperatureChange{
                 self.temperature = temperature;
-                callbackBlock(temperature);
+                callbackBlock(temperature, name);
             }
         }
     }
