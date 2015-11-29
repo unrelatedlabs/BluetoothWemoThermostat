@@ -43,9 +43,9 @@
     
     
     function command(cmd){
-        setTimeout(1,function(){
+        setTimeout(function(){
                    window.location = "command:"+ encodeURIComponent(JSON.stringify(cmd));
-        });
+        },1);
     }
     
     </script>
