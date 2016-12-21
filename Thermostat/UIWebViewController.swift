@@ -31,8 +31,20 @@ class UIWebViewController: UIViewController,UIWebViewDelegate {
             
             NSLog("Console: %@", msg)
         }
+        
+        let commandFunction : @convention(block) ([String:AnyObject]) -> Void =
+        {
+            (msg: [String:AnyObject]) in
+            self.command(msg)
+            NSLog("Console: %@", msg)
+        }
+        
+        
         context.objectForKeyedSubscript("console").setObject(unsafeBitCast(logFunction, AnyObject.self),
             forKeyedSubscript: "log")
+        
+        context.objectForKeyedSubscript("window").setObject(unsafeBitCast(commandFunction, AnyObject.self),
+            forKeyedSubscript: "ulcommand")
         
         let reloadButton = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44) )
         reloadButton.addTarget(self, action: "reload:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -66,22 +78,11 @@ class UIWebViewController: UIViewController,UIWebViewDelegate {
             
             let json = try? NSJSONSerialization.JSONObjectWithData(jsonString.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions(rawValue: 0))
             
+            NSLog("\(jsonString)")
+            
             if let json = json as? [String:AnyObject]{
-                
-                if let wemo = json["wemo"] as? [String:AnyObject]{
-                    let address = wemo["address"] as? String ?? ""
-                    let on = wemo["on"] as? Bool ?? false
-                    
-                    ULWemo.control(address,on: on)
-                }
-                
-                if let wemo = json["lazybone"] as? [String:AnyObject]{
-                    let address = wemo["address"] as? String ?? ""
-                    let on = wemo["on"] as? Bool ?? false
-                    
-                    ULLazyBone.control(address,on: on)
-                }
-                return false;
+            
+                return false
             }else{
                 webView.stringByEvaluatingJavaScriptFromString("alert('Error in command ');");
             }
@@ -90,6 +91,22 @@ class UIWebViewController: UIViewController,UIWebViewDelegate {
         }
         
         return true
+    }
+    
+    func command(json:[String:AnyObject]){
+        if let wemo = json["wemo"] as? [String:AnyObject]{
+            let address = wemo["address"] as? String ?? ""
+            let on = wemo["on"] as? Bool ?? false
+            
+            ULWemo.control(address,on: on)
+        }
+        
+        if let wemo = json["lazybone"] as? [String:AnyObject]{
+            let address = wemo["address"] as? String ?? ""
+            let on = wemo["on"] as? Bool ?? false
+            
+            ULLazyBone.control(address,on: on)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,6 +127,8 @@ class UIWebViewController: UIViewController,UIWebViewDelegate {
         
         let json = NSString(data: try! NSJSONSerialization.dataWithJSONObject(self.temperatures, options: NSJSONWritingOptions.PrettyPrinted),encoding:NSUTF8StringEncoding)!
        // webView?.stringByEvaluatingJavaScriptFromString("thermostat.updateTemperatures(\(json));")
+        
+        NSLog("updateWebView \(json)")
         webView?.stringByEvaluatingJavaScriptFromString("var event = new CustomEvent('temperature', { 'detail':\(json)});window.dispatchEvent(event);")
 
     }

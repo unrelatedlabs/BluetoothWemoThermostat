@@ -49,11 +49,7 @@ public class SendNet: NSObject, GCDAsyncSocketDelegate {
         
         self.socket = socket
         
-        
-        sendString( state ? "e\n" : "o\n" );
-
-        
-    
+        socket.readDataWithTimeout(-1.0, tag: 0)
         
     }
     
@@ -63,19 +59,10 @@ public class SendNet: NSObject, GCDAsyncSocketDelegate {
         
         
         socket.writeData(data, withTimeout: 4, tag: 0)
-        socket.readDataWithTimeout(-1.0, tag: 0)
+       
 
     }
     
-    func send(msgBytes: [UInt8]) {
-        
-        let msgData = NSData(bytes: msgBytes, length: msgBytes.count)
-        socket.writeData(msgData, withTimeout: -1.0, tag: 0)
-        socket.readDataWithTimeout(-1.0, tag: 0)
-        
-    }
-    
-  
     
     public func socket(socket : GCDAsyncSocket!, didReadData data:NSData!, withTag tag:Int){
         
@@ -86,7 +73,9 @@ public class SendNet: NSObject, GCDAsyncSocketDelegate {
         msgData.getBytes(&msgType, range: NSRange(location: 2,length: 1))
         
        // println(msgType)
-        
+        sendString( state ? "e\r\n" : "o\r\n" );
+
+        socket.disconnect()
 
         
     }

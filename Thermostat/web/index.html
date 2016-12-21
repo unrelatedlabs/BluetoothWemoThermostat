@@ -32,13 +32,13 @@
     };
     
     function turnBedroom(on){
-        command({"wemo":{"address":"http://10.0.0.140:9700/devices/bedroom_heater/","on":on}});
+        ulcommand({"wemo":{"address":"http://10.0.0.140:9700/devices/bedroom_heater/","on":on}});
         
-        document.getElementById("bedroom").innerHTML = "" + on;
+        //document.getElementById("bedroom").innerHTML = "" + on;
     }
     
     function turnLiving(on){
-        command({"lazybone":{"address":"10.0.0.19","on":on}});
+        ulcommand({"lazybone":{"address":"10.0.0.19","on":on}});
     }
     
     
